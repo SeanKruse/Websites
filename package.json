@@ -1,0 +1,23 @@
+{
+  "name": "websites",
+  "version": "1.0.0",
+  "description": "Web Design",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com/SeanKruse/Websites"
+  },
+  "author": "Sean Kruse",
+  "license": "ISC",
+  "dependencies": {
+    "craco": "^0.0.3",
+    "express": "^4.18.2",
+    "postcss": "^8.4.26"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.3.3"
+  }
+}
