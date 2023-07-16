@@ -1,23 +1,47 @@
 {
-  "name": "websites",
-  "version": "1.0.0",
-  "description": "Web Design",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "github.com/SeanKruse/Websites"
-  },
-  "author": "Sean Kruse",
-  "license": "ISC",
+  "name": "our-team",
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
-    "craco": "^0.0.3",
-    "express": "^4.18.2",
-    "postcss": "^8.4.26"
+    "@craco/craco": "^5.9.0",
+    "@heroicons/react": "^1.0.1",
+    "i": "^0.3.7",
+    "npm": "^9.7.1",
+    "postcss-flexbugs-fixes": "^5.0.2",
+    "postcss-preset-env": "^8.5.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "^5.0.1"
+  },
+  "scripts": {
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
   },
   "devDependencies": {
-    "tailwindcss": "^3.3.3"
+    "autoprefixer": "^9.8.8",
+    "init": "^0.1.2",
+    "npx": "^10.2.2",
+    "postcss": "^8.4.24",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.17"
+  },
+  "browserslist": {
+    "production": [
+      ">0.3%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
