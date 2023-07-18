@@ -9,7 +9,7 @@ export default function Projects() {
         <div className="flex flex-col w-full mb-20">
           <CodeIcon className="mx-auto inline-block w-10 mb-4" />
           <h1 className="sm:text-4xl text-3xl font-medium title-font mb-4 text-white">
-            Apps I've Built
+            Websites and Applications
           </h1>
           <p className="lg:w-2/3 mx-auto leading-relaxed text-base">
             From Google Chrome extensions and Microsoft Office add-ins to full-stack applications; from Python to JavaScript and some SQL in-between, I've built a variety of apps for a variety of purposes. Ask me about my favorites!
