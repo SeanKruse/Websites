@@ -1,24 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { teamMembers } from '../data';
-
-let words = document.querySelectorAll('.word');
-words.forEach(word => {
-  let letters = word.textContent.split('');
-  word.textContent = "";
-  letters.forEach(letter => {
-    let span = document.createElement('span');
-    span.textContent = letter;
-    span.className = "letter";
-    word.append(span);
-  })
-});
 
 const TeamMembers = ({ members }) => {
   return (
     <div className="container mx-auto flex px-10 py-20 md:flex-row flex-col items-center">
       <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
         <div className="text-center mb-4">
-          <p className="text-2xl font-medium text-white-900">Who We Are</p>
+          <p className="text-2xl font-medium text-gray-900">Who We Are</p>
         </div>
       </div>
       {members.map((member) => (
@@ -43,32 +31,6 @@ const TeamMembers = ({ members }) => {
   );
 };
 
-let currentWordIndex = 0;
-let maxWordIndex = words.length - 1;
-words[currentWordIndex].style.opacity = "1";
-
-let changeText = () => {
-  let currentWord = words[currentWordIndex];
-  let nextWord = currentWordIndex === maxWordIndex ? words[0] : words[currentWordIndex + 1];
-
-  Array.from(currentWord.children).forEach((letter,i) => {
-    setTimeout(() => {
-      letter.className = "letter out";
-    }, i*80);
-  });
-  nextWord.style.opacity = "1";
-  Array.from(nextWord.children).forEach((letter,i) => {
-    letter.className = "letter behind";
-    setTimeout(() => {
-      letter.className = "letter in";
-    }, 340+(i*80));
-  });
-  currentWordIndex = (currentWordIndex === maxWordIndex) ? 0 : currentWordIndex+1;
-};
-
-changeText();
-setInterval(changeText, 3000);
-
 const About = () => {
   const teamMembers = [
     {
@@ -88,12 +50,61 @@ const About = () => {
     },
   ];
 
+  const words = ['Design', 'Development', 'Innovation'];
+
+  useEffect(() => {
+    let currentWordIndex = 0;
+    let maxWordIndex = words.length - 1;
+    let wordElements = document.querySelectorAll('.word');
+
+    wordElements[currentWordIndex].style.opacity = "1";
+
+    let changeText = () => {
+      let currentWord = wordElements[currentWordIndex];
+      let nextWord = currentWordIndex === maxWordIndex ? wordElements[0] : wordElements[currentWordIndex + 1];
+
+      Array.from(currentWord.children).forEach((letter,i) => {
+        setTimeout(() => {
+          letter.className = "letter out";
+        }, i*80);
+      });
+      nextWord.style.opacity = "1";
+      Array.from(nextWord.children).forEach((letter,i) => {
+        letter.className = "letter behind";
+        setTimeout(() => {
+          letter.className = "letter in";
+        }, 340+(i*80));
+      });
+      currentWordIndex = (currentWordIndex === maxWordIndex) ? 0 : currentWordIndex+1;
+    };
+
+    changeText();
+    setInterval(changeText, 3000);
+  }, [words]);
+
   return (
     <section className="text-gray-600 body-font">
       <div className="container mx-auto px-20 py-24">
         <div className="flex flex-wrap -m-4">
           <div className="lg:w-1/3 sm:w-1/2 p-4">
             <div className="flex relative">
+              <div className="text-4xl font-bold leading-tight text-gray-900">
+                <p className="word">
+                  {words[0].split('').map((letter, i) => (
+                    <span key={i} className="letter">{letter}</span>
+                  ))}
+                </p>
+                <p className="word">
+                  {words[1].split('').map((letter, i) => (
+                    <span key={i} className="letter">{letter}</span>
+                  ))}
+                </p>
+                <p className="word">
+                  {words[2].split('').map((letter, i) => (
+                    <span key={i} className="letter">{letter}</span>
+                  ))}
+                </p>
+              </div>
               <TeamMembers members={teamMembers} />
             </div>
           </div>
